@@ -24,6 +24,7 @@ namespace v0630
         {
             label1.Left += vx;
             label1.Top += vy;
+
             if(label1.Left<0)
             {
                 vx = Math.Abs(vx);
@@ -40,14 +41,16 @@ namespace v0630
             {
                 vy = -Math.Abs(vy);
             }
+
             Point spos = MousePosition;
             Point fpos = PointToClient(spos);
             label2.Left = fpos.X - label2.Width / 2;
             label2.Top = fpos.Y - label2.Height / 2;
-            if((label1.Left<label2.Right)&&(label1.Top<label2.Bottom)&&(label1.Right>label2.Left)&&(label1.Bottom>label2.Top))
+
+            if((label1.Left<=fpos.X)&&(label1.Top<=fpos.Y)&&(label1.Right>fpos.X)&&(label1.Bottom>fpos.Y))
             {
                 timer1.Enabled = false;
-                MessageBox.Show("Game Over");
+                //MessageBox.Show("Game Over");
             }
         }
 
