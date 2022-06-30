@@ -44,6 +44,11 @@ namespace v0630
             Point fpos = PointToClient(spos);
             label2.Left = fpos.X - label2.Width / 2;
             label2.Top = fpos.Y - label2.Height / 2;
+            if((label1.Left<label2.Right)&&(label1.Top<label2.Bottom)&&(label1.Right>label2.Left)&&(label1.Bottom>label2.Top))
+            {
+                timer1.Enabled = false;
+                MessageBox.Show("Game Over");
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
